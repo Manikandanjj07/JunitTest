@@ -57,7 +57,7 @@ public void m1()
  @Test
 	public void m2() throws Exception 
 	{
-	System.out.println("SEARCH MOBILE");
+	System.out.println("SEARCH MOBILE & EXCEL CREATION");
 	driver.findElement(By.name("q")).sendKeys("iphone", Keys.ENTER);
 	driver.manage().timeouts().implicitlyWait(2,TimeUnit.SECONDS);
 	List<String> al = new ArrayList<String>();
@@ -83,6 +83,7 @@ public void m1()
 	public void m3()
 	{
 	 	driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+	 	driver.findElement(By.xpath("//span[text()='Filters']")).click();
 	 	System.out.println("SWITCHING TAB");
 	 	driver.findElement(By.xpath("(//a//div//div//div[contains(text(),'APPLE iPhone')])[2]")).click();
 	 	driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);		
@@ -110,11 +111,12 @@ public void m1()
 		String cellValue = cell.getStringCellValue();
 		
 		Assert.assertEquals(productName, cellValue);
-		System.out.println("ASSERT PASSED -Values Equal");
+		System.out.println("ASSERT PASSED -Values Equal ");
 			}
  @Test
 	public void m5() throws Exception
 	{
+	 	System.out.println("Specifications screenshot");
 	 	driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
 	 	JavascriptExecutor js =(JavascriptExecutor)driver;
 	 	WebElement spec = driver.findElement(By.xpath("//div[text()='Specifications']"));
@@ -134,6 +136,7 @@ public void m1()
 @AfterClass
 	public static void quitb()
 	{
+		System.out.println("BROWSER CLOSED");
 		driver.quit();
 		}
 }
